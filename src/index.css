@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fbf8f2;
+  color: #1d3324;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(circle at top left, rgba(242, 221, 155, 0.26), transparent 30%),
+    radial-gradient(circle at top right, rgba(109, 151, 116, 0.16), transparent 24%),
+    linear-gradient(180deg, #fcfaf6 0%, #f8f3e8 42%, #fdfcf8 100%);
+  background-attachment: fixed;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+}
+
+/* Accessibility: large font mode */
+.accessibility-large {
+  font-size: 1.18rem;
+}
+.accessibility-large h1 {
+  font-size: 5rem !important;
+}
+.accessibility-large h2 {
+  font-size: 3.2rem !important;
+}
+.accessibility-large .text-base {
+  font-size: 1.25rem !important;
+}
+.accessibility-large .text-lg {
+  font-size: 1.35rem !important;
+}
+
+/* High contrast mode */
+.accessibility-contrast {
+  --hc-text: #0a1a0e;
+  --hc-bg: #ffffff;
+  --hc-accent: #0d3a1a;
+}
+.accessibility-contrast body {
+  background-color: var(--hc-bg) !important;
+  color: var(--hc-text) !important;
+}
+.accessibility-contrast .text-forest-700,
+.accessibility-contrast .text-forest-800,
+.accessibility-contrast .text-forest-900 {
+  color: var(--hc-accent) !important;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f3ebde;
+}
+::-webkit-scrollbar-thumb {
+  background: #6d9774;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a7a53;
+}
+
+/* Hide scrollbar for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #e4ad38 0%, #d49320 50%, #bb7418 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-forest {
+  background: linear-gradient(135deg, #4a7a53 0%, #2c4d35 50%, #1d3324 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::selection {
+  background: rgba(212, 147, 32, 0.22);
+  color: #1d3324;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-dark {
+  background: rgba(15, 29, 20, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Editorial number style */
+.editorial-num {
+  font-family: var(--font-serif);
+  font-feature-settings: 'lnum';
+  font-variant-numeric: lining-nums;
+}
+
+/* Premium card hover */
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px -18px rgba(29, 51, 36, 0.18);
+}
+
+.soft-panel {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(29, 51, 36, 0.08);
+  box-shadow: 0 18px 44px -26px rgba(29, 51, 36, 0.35);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(242, 221, 155, 0.38), transparent 28%),
+    radial-gradient(circle at 80% 26%, rgba(109, 151, 116, 0.26), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(212, 147, 32, 0.12), transparent 26%);
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmerMove 3.8s ease-in-out infinite;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d8ba93, transparent);
+}
+
+@keyframes shimmerMove {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}

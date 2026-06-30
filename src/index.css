@@ -178,6 +178,19 @@ body {
   animation: shimmerMove 3.8s ease-in-out infinite;
 }
 
+.loader-spin {
+  animation: loaderSpin 5.5s linear infinite;
+}
+
+.born-wheel {
+  animation: bornDrive 3.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  transform: translateY(-50%) translateX(-18vw);
+}
+
+.born-ring {
+  animation: bornGlow 3.2s ease-in-out forwards;
+}
+
 /* Section divider */
 .section-divider {
   height: 1px;
@@ -190,5 +203,38 @@ body {
   }
   100% {
     transform: translateX(120%);
+  }
+}
+
+@keyframes loaderSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bornDrive {
+  0% {
+    transform: translateY(-50%) translateX(-18vw) rotate(0deg);
+  }
+  70% {
+    transform: translateY(-50%) translateX(20vw) rotate(420deg);
+  }
+  100% {
+    transform: translateY(-50%) translateX(34vw) rotate(660deg);
+  }
+}
+
+@keyframes bornGlow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateX(-50%) translateY(-50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(-50%) scale(1.02);
   }
 }

@@ -17,37 +17,41 @@ export function Hero() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
+    <section id="home" className="relative min-h-screen overflow-hidden pt-0">
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Senior living community with companionship, care, and nature"
           className="h-full w-full object-cover object-center md:object-[center_40%]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,30,21,0.88)_0%,rgba(18,30,21,0.68)_40%,rgba(18,30,21,0.24)_70%,rgba(18,30,21,0.52)_100%)]" />
-        <div className="absolute inset-0 hero-glow opacity-80" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,30,21,0.98)_0%,rgba(18,30,21,0.82)_34%,rgba(18,30,21,0.34)_70%,rgba(18,30,21,0.58)_100%)]" />
+        <div className="absolute inset-0 hero-glow opacity-42" />
+        <div className="absolute inset-y-0 left-0 w-[78%] bg-[linear-gradient(90deg,rgba(8,18,11,0.72)_0%,rgba(8,18,11,0.46)_45%,rgba(8,18,11,0)_100%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-[1600px] items-center px-5 lg:px-10 py-12 lg:py-16">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-2 mb-7 animate-fade-in">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1600px] items-center px-5 lg:px-10 pt-28 lg:pt-32 pb-16 lg:pb-20">
+        <div className="max-w-3xl -translate-y-2 lg:-translate-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-black/18 px-4 py-2 mb-7 animate-fade-in border border-white/10 backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-gold-300" />
-            <span className="text-[11px] md:text-xs font-semibold tracking-[0.28em] uppercase text-cream-50/90">
+            <span className="text-[11px] md:text-xs font-semibold tracking-[0.28em] uppercase text-cream-50">
               Premium senior living for 50+
             </span>
           </div>
 
-          <h1 className="font-serif text-[clamp(3.4rem,7vw,7.2rem)] font-light leading-[0.94] tracking-tightest text-cream-50 animate-fade-up">
-            A calmer
+          <h1
+            className="font-serif text-[clamp(3.2rem,6.6vw,7rem)] font-light leading-[0.92] tracking-tightest text-cream-50 animate-fade-up"
+            style={{ textShadow: '0 10px 28px rgba(0,0,0,0.42)' }}
+          >
+            Second Innings
             <br />
-            <span className="text-gradient-gold italic font-normal">Second Innings</span>
+            <span className="text-gradient-gold italic font-normal">House</span>
           </h1>
 
           <p
-            className="mt-6 max-w-2xl text-[1.05rem] md:text-[1.16rem] leading-[1.8] text-cream-50/90 animate-fade-up"
+            className="mt-6 max-w-2xl text-[1.05rem] md:text-[1.18rem] leading-[1.82] text-cream-50 animate-fade-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
             style={{ animationDelay: '0.12s', animationFillMode: 'both' }}
           >
-            Nature-rich living, thoughtful care, and a slower pace for people above 50 who want comfort, connection, and dignity every day.
+            A calm, premium home for people above 50 who want comfort, connection, and dignity every day.
           </p>
 
           <div
@@ -57,7 +61,7 @@ export function Hero() {
             {tags.map((tag) => (
               <span
                 key={tag.label}
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-sm text-cream-50/92 backdrop-blur-md"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/12 px-4 py-2 text-sm text-cream-50 backdrop-blur-md"
               >
                 <tag.icon className="w-4 h-4 text-gold-300" />
                 {tag.label}
@@ -78,7 +82,7 @@ export function Hero() {
             </Link>
             <Link
               to="/gallery"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-white/18 bg-white/10 px-8 py-4 text-base font-medium text-cream-50 transition-all duration-500 hover:bg-white/16 hover:-translate-y-0.5 backdrop-blur-md"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-black/12 px-8 py-4 text-base font-medium text-cream-50 transition-all duration-500 hover:bg-black/20 hover:-translate-y-0.5 backdrop-blur-md"
             >
               <Play className="w-5 h-5 text-gold-300" />
               See the spaces
@@ -90,11 +94,11 @@ export function Hero() {
             style={{ animationDelay: '0.34s', animationFillMode: 'both' }}
           >
             {stats.map((stat) => (
-              <div key={stat.label} className="glass-dark rounded-[1.5rem] border border-white/10 px-5 py-4">
+              <div key={stat.label} className="rounded-[1.5rem] border border-white/10 bg-black/14 px-5 py-4 backdrop-blur-md">
                 <div className="font-serif text-3xl md:text-4xl font-light text-cream-50 editorial-num">
                   {stat.num}
                 </div>
-                <div className="mt-1 text-xs md:text-sm tracking-wide text-cream-50/72">
+                <div className="mt-1 text-xs md:text-sm tracking-wide text-cream-50/90">
                   {stat.label}
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { IntroLoader } from './components/IntroLoader';
 import { HomePage } from './pages/HomePage';
 import { LifestylePage } from './pages/LifestylePage';
 import { WellnessPage } from './pages/WellnessPage';
@@ -30,12 +31,29 @@ function ScrollToTop() {
 function App() {
   const [largeFont, setLargeFont] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle('accessibility-large', largeFont);
     root.classList.toggle('accessibility-contrast', highContrast);
   }, [largeFont, highContrast]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setLoading(false), 5200);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = loading ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [loading]);
+
+  if (loading) {
+    return <IntroLoader />;
+  }
 
   return (
     <HashRouter>
